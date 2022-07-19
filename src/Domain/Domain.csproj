@@ -9,8 +9,4 @@
         <LangVersion>10</LangVersion>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Contracts" />
-    </ItemGroup>
-
 </Project>
