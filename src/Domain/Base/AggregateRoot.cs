@@ -28,7 +28,7 @@ public class AggregateRoot : IAggregateRoot
         return _uncommittedEvents.ToList();
     }
 
-    protected void Enqueue(IDomainEvent @event)
+    public void Enqueue(IDomainEvent @event)
     {
         _uncommittedEvents.Enqueue(@event);
     }
