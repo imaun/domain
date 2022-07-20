@@ -23,6 +23,11 @@ public class AggregateRoot : IAggregateRoot
         return dequeuedEvents;
     }
 
+    public IReadOnlyList<IDomainEvent> GetAllEvents()
+    {
+        return _uncommittedEvents.ToList();
+    }
+
     protected void Enqueue(IDomainEvent @event)
     {
         _uncommittedEvents.Enqueue(@event);
