@@ -6,7 +6,7 @@ public interface IAggregateRoot : IEntity
     
     void When(object @event);
     
-    object[] DequeueUncommittedEvents();
+    IDomainEvent[] DequeueUncommittedEvents();
 }
 
 public interface IAggregateRoot<TId> : IAggregateRoot, IEntity<TId>
