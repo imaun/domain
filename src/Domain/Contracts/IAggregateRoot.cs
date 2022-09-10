@@ -1,6 +1,6 @@
 namespace iman.Domain;
 
-public interface IAggregateRoot : IEntity
+public interface IAggregateRoot
 {
     int Version { get; }
     
@@ -11,10 +11,4 @@ public interface IAggregateRoot : IEntity
     IReadOnlyList<IDomainEvent> GetAllEvents();
 
     void Enqueue(IDomainEvent @event);
-}
-
-public interface IAggregateRoot<TId> : IAggregateRoot, IEntity<TId>
-{
-    
-    TId Id { get;}
 }

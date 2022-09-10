@@ -8,8 +8,8 @@ namespace iman.Domain;
 /// </summary>
 /// <typeparam name="T"></typeparam>
 /// <typeparam name="TKey"></typeparam>
-public interface IDomainRepository<T, TKey> 
-    where T : IAggregateRoot<TKey>, IEntity<TKey>
+public interface IDomainRepository<T, in TKey> 
+    where T : IAggregateRoot, IEntity<TKey>
 {
     void Add(T entity);
 

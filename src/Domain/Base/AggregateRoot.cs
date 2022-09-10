@@ -1,6 +1,6 @@
 namespace iman.Domain;
 
-public class AggregateRoot : IAggregateRoot
+public class AggregateRoot<TId> : Entity<TId>, IAggregateRoot
 {
     protected readonly Queue<IDomainEvent> _uncommittedEvents;
 
@@ -32,16 +32,4 @@ public class AggregateRoot : IAggregateRoot
     {
         _uncommittedEvents.Enqueue(@event);
     }
-}
-
-public class AggregateRoot<TId> : AggregateRoot, IAggregateRoot<TId> where TId : notnull
-{
-
-    public AggregateRoot() : base(version: 1)
-    {
-        
-    }
-    
-    public TId Id { get; protected set; } = default!;
-   
 }
