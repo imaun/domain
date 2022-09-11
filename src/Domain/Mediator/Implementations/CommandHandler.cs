@@ -1,7 +1,7 @@
 namespace iman.Domain;
 
 public abstract class CommandHandler<TCommand, TResult> : ICommandHandler<TCommand, TResult> 
-    where TCommand : IMessage<TResult> where TResult : new()
+    where TCommand : ICommand<TResult> where TResult : new()
 {
     public async Task<TResult> HandleAsync(TCommand message,
         CancellationToken cancellationToken)
@@ -16,7 +16,7 @@ public abstract class CommandHandler<TCommand, TResult> : ICommandHandler<TComma
 }
 
 public abstract class CommandHandler<TCommand> : ICommandHandler<TCommand>
-    where TCommand : IMessage
+    where TCommand : ICommand
 {
     public async Task HandleAsync(TCommand message, CancellationToken cancellationToken)
     {

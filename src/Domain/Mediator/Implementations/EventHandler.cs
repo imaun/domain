@@ -1,6 +1,6 @@
 namespace iman.Domain;
 
-public abstract class EventHandler<TEvent> : IEventHandler<TEvent> where TEvent : IMessage
+public abstract class EventHandler<TEvent> : IEventHandler<TEvent> where TEvent : IEvent
 {
     public async Task HandleAsync(
         TEvent message,

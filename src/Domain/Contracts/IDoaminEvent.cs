@@ -1,6 +1,6 @@
 namespace iman.Domain;
 
-public interface IDomainEvent
+public interface IDomainEvent : IEvent
 {
     Guid EventId { get; }
     
