@@ -18,15 +18,19 @@ public class Mediator : IMediator
         var targetType = message.GetType(); 
         var targetHandler = typeof(IMessageProcessor<,>).MakeGenericType(targetType, typeof(TResponse));
         var instance = _serviceFactory.GetInstance(targetHandler);
-
+  
         var result = InvokeInstanceAsync(instance, message, targetHandler, cancellationToken);
 
         return result;
     }
 
-    public Task PublishAsync(IMessage message, CancellationToken cancellationToken = default)
+    public async Task PublishAsync(IMessage message, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        var targetType = message.GetType();
+        var targetHandler = typeof(IMessageProcessor<>).MakeGenericType(targetType);
+        var instance = _serviceFactory.GetInstance(targetHandler);
+
+        var result = InvokeInstanceAsync(instance, message, targetHandler, cancellationToken);
     }
     
     private Task<TResponse> InvokeInstanceAsync<TResponse>(

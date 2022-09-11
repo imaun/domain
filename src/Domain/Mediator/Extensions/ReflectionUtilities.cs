@@ -296,6 +296,6 @@ public static class ReflectionUtilities
         services.AddScoped<IServiceFactory, ServiceFactory>();
         services.AddScoped(typeof(IMessageProcessor<>), typeof(MessageProcessor<>));
         services.AddScoped(typeof(IMessageProcessor<,>), typeof(MessageProcessor<,>));
-        // services.AddScoped<IMediator, Mediator>();
+        services.AddScoped<IMediator, Mediator>();
     }
 }

@@ -1,7 +1,8 @@
 using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
+using iman.Domain;
+using iman.Domain.Messaging.Extensions;
 
-namespace iman.Domain.Messaging.Extensions;
+namespace Microsoft.Extensions.DependencyInjection;
 
  /// <summary>
     /// from : https://github.com/dasiths/SimpleMediator/blob/9680205111da9f4573a06b38fa2b12949c2ac8bc/SimpleMediator.Extensions.Microsoft.DependencyInjection/ServiceCollectionExtensions.cs

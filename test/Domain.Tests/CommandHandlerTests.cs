@@ -7,6 +7,7 @@ using NUnit.Framework;
 
 namespace Domain.Tests;
 
+[TestFixture]
 public class CommandHandlerTests
 {
     private IMediator _mediator;
@@ -22,19 +23,13 @@ public class CommandHandlerTests
     }
 
     [Test]
-    public async Task Test1()
+    public async Task Command_handler_command_args_effected_when_published()
     {
-        var services = new ServiceCollection();
-        services.AddDomainCore();
-        var provider = services.BuildServiceProvider();
-
-        _mediator = provider.GetRequiredService<IMediator>();
-        
         var cmd = new SampleCommand();
         cmd.Input = "iman";
         await _mediator.PublishAsync(cmd).ConfigureAwait(false);
         var expectedOutput = $"The input was {cmd.Input}";
-        Assert.Equals(cmd.Input, cmd.Output);
+        Assert.AreEqual(expectedOutput, cmd.Output);
     }
 }
 
