@@ -6,7 +6,6 @@ public class MessageProcessor<TMessage> : IMessageProcessor<TMessage>
     private readonly IEnumerable<IMessageHandler<TMessage>> _messageHandlers;
     private readonly IEnumerable<IMiddleware<TMessage>> _middlewares;
     
-    
     public MessageProcessor(IServiceFactory serviceFactory)
     {
         _messageHandlers = (IEnumerable<IMessageHandler<TMessage>>)
