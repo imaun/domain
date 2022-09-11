@@ -11,4 +11,6 @@ public interface IAggregateRoot
     IReadOnlyList<IDomainEvent> GetAllEvents();
 
     void Enqueue(IDomainEvent @event);
+
+    Task PublishEventsAsync(CancellationToken cancellationToken = default);
 }

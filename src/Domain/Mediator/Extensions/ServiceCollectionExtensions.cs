@@ -16,7 +16,7 @@ namespace iman.Domain.Messaging.Extensions;
     public static class ServiceCollectionExtensions
     {
 
-        public static IServiceCollection AddBehlogCore(this IServiceCollection services) {
+        public static IServiceCollection AddDomainCore(this IServiceCollection services) {
             services.AddMediator();
             services.AddMediatorMiddleware();
             return services;
