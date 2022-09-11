@@ -10,7 +10,7 @@ namespace Domain.Tests;
 [TestFixture]
 public class CommandHandlerTests
 {
-    private IMediator _mediator;
+    private ICommandBus _commandBus;
     
     [SetUp]
     public void Setup()
@@ -19,7 +19,7 @@ public class CommandHandlerTests
         services.AddDomainCore();
         var provider = services.BuildServiceProvider();
 
-        _mediator = provider.GetRequiredService<IMediator>();
+        _commandBus = provider.GetRequiredService<ICommandBus>();
     }
 
     [Test]
@@ -27,7 +27,7 @@ public class CommandHandlerTests
     {
         var cmd = new SampleCommand();
         cmd.Input = "iman";
-        await _mediator.PublishAsync(cmd).ConfigureAwait(false);
+        await _commandBus.ExecuteAsync(cmd).ConfigureAwait(false);
         var expectedOutput = $"The input was {cmd.Input}";
         Assert.AreEqual(expectedOutput, cmd.Output);
     }

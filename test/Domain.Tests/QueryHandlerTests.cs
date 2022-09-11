@@ -11,7 +11,7 @@ namespace Domain.Tests;
 [TestFixture]
 public class QueryHandlerTests
 {
-    private IMediator _mediator;
+    private IQueryBus _queryBus;
 
     [SetUp]
     public void Setup()
@@ -20,14 +20,14 @@ public class QueryHandlerTests
         services.AddDomainCore();
         var provider = services.BuildServiceProvider();
 
-        _mediator = provider.GetRequiredService<IMediator>();
+        _queryBus = provider.GetRequiredService<IQueryBus>();
     }
 
     [Test]
     public async Task Query_handler_executes_query_and_return_valid_result()
     {
         var query = new GetByNameQuery("iman");
-        var result = await _mediator.PublishAsync(query);
+        var result = await _queryBus.ExecuteAsync(query);
 
         var expected = new[]
         {
