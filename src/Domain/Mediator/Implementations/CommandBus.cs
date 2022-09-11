@@ -19,7 +19,7 @@ public class CommandBus : ICommandBus
         var method = instance.GetType().GetTypeInfo()
             .GetMethod(nameof(IMessageProcessor<ICommand<TResult>, TResult>.HandleAsync));
         
-        if (method != null)
+        if (method == null)
         {
             throw new InvalidCommandHandlerInstanceException(handler.Name);
         }
@@ -27,7 +27,7 @@ public class CommandBus : ICommandBus
         return await (Task<TResult>)method.Invoke(instance, new object[]
         {
             command, cancellationToken
-        });
+        })!;
     }
 
     public async Task ExecuteAsync(ICommand command, CancellationToken cancellationToken = default)

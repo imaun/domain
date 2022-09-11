@@ -50,7 +50,10 @@ public class Mediator : IMediator
                 instance.GetType().FullName);
         }
 
-        return (Task<TResponse>) method.Invoke(instance, new object[] {message, cancellationToken});
+        return (Task<TResponse>)method.Invoke(instance, new object[]
+        {
+            message, cancellationToken
+        })!;
     }
 
     private Task InvokeInstanceAsync(
@@ -70,6 +73,10 @@ public class Mediator : IMediator
                 instance.GetType().FullName);
         }
 
-        return (Task)method.Invoke(instance, new object[] { message, cancellationToken });
+        return (Task)method.Invoke(instance, new object[]
+        {
+            message, cancellationToken 
+            
+        })!;
     }
 }

@@ -298,6 +298,6 @@ public static class ReflectionUtilities
         services.AddScoped(typeof(IMessageProcessor<,>), typeof(MessageProcessor<,>));
         services.AddScoped<IMediator, Mediator>();
         services.AddScoped<ICommandBus, CommandBus>();
-        
+        services.AddScoped<IQueryBus, QueryBus>();
     }
 }

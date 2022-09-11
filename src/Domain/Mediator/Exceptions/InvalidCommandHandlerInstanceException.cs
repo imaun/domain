@@ -2,10 +2,9 @@ namespace iman.Domain;
 
 public class InvalidCommandHandlerInstanceException : Exception
 {
-    public InvalidCommandHandlerInstanceException(string commandHandlerName)
-        : base(message: $"The instance is not the proper handler '{commandHandlerName}' ")
+    public InvalidCommandHandlerInstanceException(string handlerName)
+        : base(message: $"The instance is not the proper handler '{handlerName}' ")
     {
     }
     
-    public string CommandHandlerName { get; }
 }
