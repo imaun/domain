@@ -7,6 +7,16 @@
         <RootNamespace>iman.Domain</RootNamespace>
         <TargetFrameworks>net5.0;net6.0;netstandard2.1</TargetFrameworks>
         <LangVersion>10</LangVersion>
+        <PackageId>iman.Domain</PackageId>
+        <Title>DDD &amp; CQRS abstractions and implementations</Title>
+        <Description>iman.Domain is the library I've built for using in **DDD** and **CQRS** based projects using `.NET` and `C#`.
+It consist of primary building blocks for common domain-driven applications such as `AggregateRoot` and `Entity`.</Description>
+        <Copyright>(c) 2022 Iman Nemati</Copyright>
+        <PackageProjectUrl>https://github.com/imaun/domain</PackageProjectUrl>
+        <PackageLicenseUrl>https://github.com/imaun/domain/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/imaun/domain</RepositoryUrl>
+        <RepositoryType>Github</RepositoryType>
+        <PackageTags>CQRS, DDD, Aggregate, Domin-Driven Design</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
